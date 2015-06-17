@@ -25,8 +25,14 @@ app.controller("PanelController", function(){
 }); 
 
 app.controller("ReviewController", function(){
+	
 	this.review={};
-})
+
+	// push  new submitted review to the reviews array
+	this.addReview = function(product) {
+		product.reviews.push(this.review);
+	};
+});
 
 	//array of gems for our store
 	var gems = [ 
@@ -45,8 +51,8 @@ app.controller("ReviewController", function(){
 				thumb: '/ruby-thumb.jpeg'
 
 			},
-
-		reviews: [
+		],
+		review: [
 			{
 				stars: 5,
 				body: "It's super shiny, I'm satisfied.",
@@ -57,21 +63,15 @@ app.controller("ReviewController", function(){
 				body: "It didn't make me sparkle with joy. :(",
 				author: "sadbooboo@aol.com"
 			},
-
-		]
-
-
-		], 
+		],
 		// ng-show example, hide button if false
 		canPurchase: true,
-		
 	},
-
 	{
 		name: 'Pentagonal Gem',
 		price: '5.99',
 		description: 'Five sides and all are lovely',
-			images: [
+		images: [
 			//list of image objects
 			//use ng-src directive to put in html
 			{
