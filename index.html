@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+	<html ng-app="store">
+		<head>
+		</head>
+		<!-- attach controller to this element, scope of this controller is only within this given element -->
+		<body = ng-controller="StoreController as store">
+			<!-- ng-repeat to iterate thru array of gems! -->
+			<div ng-repeat="product in store.products">
+					<h1> {{product.name}} </h1>
+					<!-- our first filter -->
+					<h2> {{product.price | currency}} </h2>
+					<p> {{product.description}}</p>
+
+					<!-- ng-src allows you to load stuff from the js properly -->
+					<img ng-src= "{{product.images[0].thumb}}" />
+					<!-- only shows when canPurchase is true, b/c of ng-show -->
+					<button ng-show="product.canPurchase"> Add to Cart </button>
+			</div>
+			<script type ="text/javascript"  src="/bower_components/angular/angular.js"> </script>
+			<script type ="text/javascript"  src="/js/app.js"> </script>
+			
+		</body>
+	</html>
