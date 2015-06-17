@@ -30,8 +30,11 @@ app.controller("ReviewController", function(){
 
 	// push  new submitted review to the reviews array
 	this.addReview = function(product) {
-		product.reviews.push(this.review);
+		product.review.push(this.review);
+		this.review = {};
 	};
+
+
 });
 
 	//array of gems for our store
