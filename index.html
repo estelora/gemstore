@@ -17,6 +17,35 @@
             		</ul>
 					<!-- only shows when canPurchase is true, b/c of ng-show -->
 					<button ng-show="product.canPurchase"> Add to Cart </button>
+
+
+					<!-- ng-init allows us to evaluate an expression in the current scope, set initial tab value to 1  -->
+					<section ng-init="tab = 1">
+					<ul class = "nav">
+						<!-- ng-click adds behaviors on-click! -->
+						<li> <a href ng-click="tab = 1"> Description </a> </li>
+						<li> <a href ng-click="tab = 2"> Specifications </a> </li>
+						<li> <a href ng-click="tab = 3"> Reviews </a> </li>
+					</ul>
+					
+					{{tab}}
+					<!-- ng-show adds showing behavior when tab is clicked -->
+					<div class="panel" ng-show="tab === 1">
+						<h4> Description</h4>
+						<p> {{product. description}} </p>
+					</div>
+
+					<div class="panel" ng-show="tab === 2">
+						<h4> Specifications</h4>
+						<p> None yet </p>
+					</div>
+
+					<div class="panel" ng-show="tab === 3">
+						<h4> Reviews</h4>
+						<p> None yet </p>
+					</div>
+					</section>
+
 			</div>
 			<script type ="text/javascript"  src="/bower_components/angular/angular.js"> </script>
 			<script type ="text/javascript"  src="/js/app.js"> </script>
