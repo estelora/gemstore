@@ -11,8 +11,10 @@
 					<h2> {{product.price | currency}} </h2>
 					<p> {{product.description}}</p>
 
+					 <ul ng-repeat ="image in product.images" >
 					<!-- ng-src allows you to load stuff from the js properly -->
-					<img ng-src= "{{product.images[0].thumb}}" />
+            		<img ng-src="{{product.images[0].thumb}}" />
+            		</ul>
 					<!-- only shows when canPurchase is true, b/c of ng-show -->
 					<button ng-show="product.canPurchase"> Add to Cart </button>
 			</div>
