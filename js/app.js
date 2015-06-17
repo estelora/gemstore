@@ -21,8 +21,12 @@ app.controller("PanelController", function(){
 	this.isSelected = function(checkTab) {
 		return this.tab === checkTab;
 	};
-git 
+
 }); 
+
+app.controller("ReviewController", function(){
+	this.review={};
+})
 
 	//array of gems for our store
 	var gems = [ 

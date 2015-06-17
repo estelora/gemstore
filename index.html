@@ -52,10 +52,31 @@
 
 					<div class="panel" ng-show="panel.isSelected(3)">
 						<h4> Reviews</h4>
+						<!-- allows for live preview -->
 						<blockquote ng-repeat="review in product.reviews">
-							{{review.body}}
-							<cite> by: {{review.author}} </cite>
+							<b>{{reveiewCtrl.review.body}} </b>
+							<cite> by: {{reveiewCtrl.review.author}} </cite>
 						</blockquote>
+						<!-- add ReviewController for the form -->
+						<form name="reviewForm" ng-controller="ReviewController as reviewCtrl">
+
+
+							<select ng-model="reveiewCtrl.review.stars">
+								<option value="1"> 1 star</option>
+								<option value="2"> 2 stars</option>
+								<option value="3"> 3 stars</option>
+								<option value="4"> 4 stars</option>
+								<option value="5"> 5 stars</option>	
+
+							</select>
+
+
+							<textarea ng-model ="reveiewCtrl.review.body"></textarea>
+							<label> by: </label>
+							<input  ng-model ="reveiewCtrl.review.author" type="email" />
+							<input type="submit" value="Submit" />
+
+						</form>
 					</div>
 					</section>
 
