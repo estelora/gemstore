@@ -1,6 +1,8 @@
 <!DOCTYPE html>
+
 	<html ng-app="store">
 		<head>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 		</head>
 		<!-- attach controller to this element, scope of this controller is only within this given element -->
 		<body = ng-controller="StoreController as store">
@@ -19,28 +21,36 @@
 					<button ng-show="product.canPurchase"> Add to Cart </button>
 
 
-					<!-- ng-init allows us to evaluate an expression in the current scope, set initial tab value to 1  -->
-					<section ng-init="tab = 1">
-					<ul class = "nav">
-						<!-- ng-click adds behaviors on-click! -->
-						<li> <a href ng-click="tab = 1"> Description </a> </li>
-						<li> <a href ng-click="tab = 2"> Specifications </a> </li>
-						<li> <a href ng-click="tab = 3"> Reviews </a> </li>
-					</ul>
+					<!-- make controller for panel logic in app.js -->
+					<section  ng-controller="PanelController as panel">
+						<ul class = "nav nav-pills">
+							<!-- ng-class allows dynamic setting of css classes with databinding for all classes to be added -->
+							<li ng-class="{ active: panel.isSelected(1) }"> 
+								<!-- ng-click adds behaviors on-click! -->
+								<!-- calling setTab with controller -->
+								<a href ng-click="panel.selectTab(1)"> Description </a>
+							 </li>
+							<li ng-class="{ active: panel.isSelected(2) }"> 
+								<a href ng-click="panel.selectTab(2)"> Specifications </a> 
+							</li>
+							<li ng-class="{ active: panel.isSelected(3) }"> 
+								<a href ng-click="panel.selectTab(3)"> Reviews </a> 
+							</li>
+						</ul>
 					
 					{{tab}}
 					<!-- ng-show adds showing behavior when tab is clicked -->
-					<div class="panel" ng-show="tab === 1">
+					<div class="panel" ng-show="panel.isSelected(1)">
 						<h4> Description</h4>
 						<p> {{product. description}} </p>
 					</div>
 
-					<div class="panel" ng-show="tab === 2">
+					<div class="panel" ng-show="panel.isSelected(2)">
 						<h4> Specifications</h4>
 						<p> None yet </p>
 					</div>
 
-					<div class="panel" ng-show="tab === 3">
+					<div class="panel" ng-show="panel.isSelected(3)">
 						<h4> Reviews</h4>
 						<p> None yet </p>
 					</div>

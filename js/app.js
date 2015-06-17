@@ -8,6 +8,20 @@ var app = angular.module('store', [ ]);
 app.controller('StoreController', function(){
 	this.products = gems;
 
+});
+
+app.controller("PanelController", function(){
+	//set initial value to 1 for tabs
+	this.tab = 1;
+	//sets the clicked tab
+	this.selectTab = function(setTab) {
+		this.tab = setTab;
+	};
+	//checks if currentTab is correct, boolean
+	this.isSelected = function(checkTab) {
+		return this.tab === checkTab;
+	};
+
 }); 
 
 	//array of gems for our store
