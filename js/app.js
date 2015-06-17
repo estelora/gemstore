@@ -21,7 +21,7 @@ app.controller("PanelController", function(){
 	this.isSelected = function(checkTab) {
 		return this.tab === checkTab;
 	};
-
+git 
 }); 
 
 	//array of gems for our store
@@ -41,6 +41,20 @@ app.controller("PanelController", function(){
 				thumb: '/ruby-thumb.jpeg'
 
 			},
+
+		reviews: [
+			{
+				stars: 5,
+				body: "It's super shiny, I'm satisfied.",
+				author: "gymrat@hotmail.net"
+			},
+			{
+				stars: 1,
+				body: "It didn't make me sparkle with joy. :(",
+				author: "sadbooboo@aol.com"
+			},
+
+		]
 
 
 		], 
