@@ -3,17 +3,18 @@
 <html ng-app="store">
 <head>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <!-- attach controller to this element, scope of this controller is only within this given element -->
 <body = ng-controller="StoreController as store">
 	<!-- ng-repeat to iterate thru array of gems! -->
-	<div ng-repeat="product in store.products">
-		<h1> {{product.name}} </h1>
-		<!-- our first filter -->
-		<h2> {{product.price | currency}} </h2>
-		<p> {{product.description}}</p>
+	<ul class="list-group" ng-repeat="product in store.products">
 
+<li class="list-group-item" >
+		<!-- use ng-include for templates -->
+		<h3 ng-include="'product-title.html'"></h3>
+
+</li>
 		<ul ng-repeat ="image in product.images" >
 			<!-- ng-src allows you to load stuff from the js properly -->
 			<img ng-src="{{product.images[0].thumb}}" />
@@ -69,7 +70,7 @@
 						<b> Stars: {{reviewCtrl.review.stars}} </b>
 						{{reviewCtrl.review.body}}
 						<!-- using createdOn time stamp from reviewCtrl -->
-						<cite> -{{reviewCtrl.review.author}} on {{review.createdOn | date}}</cite>
+						<cite> -{{reviewCtrl.review.author}} on {{review.createdOn | date }}</cite>
 					</blockquote>
 
 					<select ng-model="reviewCtrl.review.stars" required>
@@ -92,7 +93,7 @@
 			</div>
 		</section>
 
-	</div>
+	</ul>
 	<script type ="text/javascript"  src="/bower_components/angular/angular.js"> </script>
 	<script type ="text/javascript"  src="/js/app.js"> </script>
 

@@ -30,7 +30,7 @@ app.controller("ReviewController", function(){
 
 	// push  new submitted review to the reviews array
 	this.addReview = function(product){
-		// createdOn gives a timestamp
+		// createdOn is a timestamp
 		this.review.createdOn = Date.now();
 		product.reviews.push(this.review);
 		this.review = {};
