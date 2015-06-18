@@ -1,6 +1,6 @@
 (function(){
 
-var app = angular.module('store', [ ]);
+	var app = angular.module('store', [ ]);
 
 
 // Controllers are where we define the app's bx with functions and values
@@ -29,8 +29,10 @@ app.controller("ReviewController", function(){
 	this.review={};
 
 	// push  new submitted review to the reviews array
-	this.addReview = function(product) {
-		product.review.push(this.review);
+	this.addReview = function(product){
+		// createdOn gives a timestamp
+		this.review.createdOn = Date.now();
+		product.reviews.push(this.review);
 		this.review = {};
 	};
 
@@ -54,8 +56,8 @@ app.controller("ReviewController", function(){
 				thumb: '/ruby-thumb.jpeg'
 
 			},
-		],
-		review: [
+			],
+			review: [
 			{
 				stars: 5,
 				body: "It's super shiny, I'm satisfied.",
@@ -64,9 +66,9 @@ app.controller("ReviewController", function(){
 			{
 				stars: 1,
 				body: "It didn't make me sparkle with joy. :(",
-				author: "sadbooboo@aol.com"
-			},
-		],
+					author: "sadbooboo@aol.com"
+				},
+				],
 		// ng-show example, hide button if false
 		canPurchase: true,
 	},
@@ -82,8 +84,8 @@ app.controller("ReviewController", function(){
 				thumb: '/ruby-thumb2.jpeg'
 
 			},
-		], 
-		canPurchase: true,
-	}
-];
-})();
+			], 
+			canPurchase: true,
+		}
+		];
+	})();

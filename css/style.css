@@ -1,0 +1,12 @@
+/* styles for form validation*/
+
+
+/*shows after if email is invalid*/
+.ng-invalid.ng-dirty {
+	border-color: : red;
+}
+
+/*shows after typing if email is vali/
+.ng-valid.ng-dirty {
+	border-color: green;
+}
