@@ -10,34 +10,17 @@ app.controller('StoreController', function(){
 
 });
 
-app.controller("PanelController", function(){
-	//set initial value to 1 for tabs
-	this.tab = 1;
-	//sets the clicked tab
-	this.selectTab = function(setTab) {
-		this.tab = setTab;
-	};
-	//checks if currentTab is correct, boolean
-	this.isSelected = function(checkTab) {
-		return this.tab === checkTab;
-	};
-
-}); 
 
 app.controller("ReviewController", function(){
-	
-	this.review={};
 
-	// push  new submitted review to the reviews array
-	this.addReview = function(product){
-		// createdOn is a timestamp
-		this.review.createdOn = Date.now();
-		product.reviews.push(this.review);
-		this.review = {};
-	};
+    this.review = {};
 
+    this.addReview = function(product){
+      product.review.push(this.review);
+      this.review = {};
+    }
 
-});
+  });
 
 // first directive, templates product information
 // angular take camelCase, html takes came-case for names
@@ -45,7 +28,30 @@ app.directive('productTitle', function(){
 	return {
 		restrict: 'E',
 		templateUrl: 'product-title.html'
-	};
+	}
+});
+
+
+// directive controller
+app.directive('productPanels', function(){
+ 	return {
+ 		restrict: 'E',
+ 		templateUrl: 'product-panels.html',
+ 		// move functionality of a controller inside this directive
+ 		controller:function(){
+			//set initial value to 1 for tabs
+			this.tab = 1;
+			//sets the clicked tab
+			this.selectTab = function(setTab) {
+				this.tab = setTab;
+			};
+			//checks if currentTab is correct, boolean
+			this.isSelected = function(checkTab) {
+				return this.tab === checkTab;
+			};
+ 		},
+		controllerAs: 'panels'
+ 	}
 });
 
 	//array of gems for our store
@@ -98,3 +104,5 @@ app.directive('productTitle', function(){
 		}
 		];
 	})();
+
+});

@@ -1,0 +1,68 @@
+<section  ng-controller="PanelController as panel">
+			<ul class = "nav nav-pills">
+				<!-- ng-class allows dynamic setting of css classes with databinding for all classes to be added -->
+				<li ng-class="{ active: panel.isSelected(1) }"> 
+					<!-- ng-click adds behaviors on-click! -->
+					<!-- calling setTab with controller -->
+					<a href ng-click="panel.selectTab(1)"> Description </a>
+				</li>
+				<li ng-class="{ active: panel.isSelected(2) }"> 
+					<a href ng-click="panel.selectTab(2)"> Specifications </a> 
+				</li>
+				<li ng-class="{ active: panel.isSelected(3) }"> 
+					<a href ng-click="panel.selectTab(3)"> Reviews </a> 
+				</li>
+			</ul>
+
+			{{tab}}
+			<!-- ng-show adds showing behavior when tab is clicked -->
+			<div class="panel" ng-show="panel.isSelected(1)">
+				<h4> Description</h4>
+				<p> {{product. description}} </p>
+			</div>
+
+			<div class="panel" ng-show="panel.isSelected(2)">
+				<h4> Specifications</h4>
+				<p> None yet </p>
+			</div>
+
+			<div class="panel" ng-show="panel.isSelected(3)">
+				<h4> Reviews</h4>
+				<blockquote ng-repeat="review in product.review">
+					<strong>{{review.stars}}</strong>
+					<b>{{review.body}} </b>
+					<cite> by: {{review.author}} </cite>
+				</blockquote>
+</section>
+
+				<!-- add ReviewController for the form -->
+				<!-- novalidate to turn off default html validation -->
+				<!-- ng-submit to let us submit review for the currenct product, if review form is false, cannot submit -->
+				<form name="reviewForm" ng-controller="ReviewController as reviewCtrl" 
+																ng-submit="reviewForm.$valid && reviewCtrl.addReview(product)" novalidate>
+					<blockquote>
+						<b> Stars: {{reviewCtrl.review.stars}} </b>
+						{{reviewCtrl.review.body}}
+						<!-- using createdOn time stamp from reviewCtrl -->
+						<cite> -{{reviewCtrl.review.author}} on {{review.createdOn | date }}</cite>
+					</blockquote>
+
+					<select ng-model="reviewCtrl.review.stars" required>
+						<option value="1"> 1 star</option>
+						<option value="2"> 2 stars</option>
+						<option value="3"> 3 stars</option>
+						<option value="4"> 4 stars</option>
+						<option value="5"> 5 stars</option>	
+
+					</select>
+
+
+					<textarea ng-model ="reviewCtrl.review.body" required></textarea>
+					<label> by: </label> <input  ng-model ="reviewCtrl.review.author" type="email"  required/>
+
+					<input type="submit" value="Submit" />
+				<!-- checks with boolean if form is valid -->
+				<div>  reviewForm is {{reviewForm.$valid}}</div>
+				</form>
+			</div>
+		
