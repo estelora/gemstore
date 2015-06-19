@@ -6,7 +6,7 @@
 	border-color: : red;
 }
 
-/*shows after typing if email is vali/
+/*shows after typing if email is valid*/
 .ng-valid.ng-dirty {
 	border-color: green;
 }

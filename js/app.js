@@ -39,6 +39,15 @@ app.controller("ReviewController", function(){
 
 });
 
+// first directive, templates product information
+// angular take camelCase, html takes came-case for names
+app.directive('productTitle', function(){
+	return {
+		restrict: 'E',
+		templateUrl: 'product-title.html'
+	};
+});
+
 	//array of gems for our store
 	var gems = [ 
 	
