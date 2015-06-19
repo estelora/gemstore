@@ -1,6 +1,5 @@
-(function(){
 
-	var app = angular.module('store', [ ]);
+var app = angular.module('store', [ ]);
 
 
 // Controllers are where we define the app's bx with functions and values
@@ -11,16 +10,17 @@ app.controller('StoreController', function(){
 });
 
 
+
 app.controller("ReviewController", function(){
 
-    this.review = {};
+	this.review = {};
 
-    this.addReview = function(product){
-      product.review.push(this.review);
-      this.review = {};
-    }
+	this.addReview = function(product){
+		product.review.push(this.review);
+		this.review = {};
+	};
 
-  });
+});
 
 // first directive, templates product information
 // angular take camelCase, html takes came-case for names
@@ -34,11 +34,15 @@ app.directive('productTitle', function(){
 
 // directive controller
 app.directive('productPanels', function(){
- 	return {
- 		restrict: 'E',
- 		templateUrl: 'product-panels.html',
+
+	return {
+
+		restrict: 'E',
+		templateUrl: 'product-panels.html',
+		controllerAs: 'panels',
  		// move functionality of a controller inside this directive
- 		controller:function(){
+ 		
+ 		controller: function(){
 			//set initial value to 1 for tabs
 			this.tab = 1;
 			//sets the clicked tab
@@ -49,14 +53,14 @@ app.directive('productPanels', function(){
 			this.isSelected = function(checkTab) {
 				return this.tab === checkTab;
 			};
- 		},
-		controllerAs: 'panels'
- 	}
+		}
+
+	};
+
 });
 
-	//array of gems for our store
-	var gems = [ 
-	
+//array of gems for our store
+var gems = [ 
 	// storing our first variable inside the controller
 	{ 
 		name: 'Dodecahedron',
@@ -103,6 +107,3 @@ app.directive('productPanels', function(){
 			canPurchase: true,
 		}
 		];
-	})();
-
-});
