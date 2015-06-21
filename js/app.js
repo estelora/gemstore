@@ -3,7 +3,7 @@
 
 
 		//declare app module, add 'store-prducts' module because 'store' depends on it
-		var app = angular.module('store', ['store-products ']);
+		var app = angular.module('store', ['store-products']);
 
 
 		// Controllers are where we define the app's bx with functions and values
