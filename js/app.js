@@ -45,41 +45,41 @@
 
 		// first directive, templates product information
 		// angular take camelCase, html takes came-case for names
-		app.directive('productTitle', function(){
-			return {
-				restrict: 'E',
-				templateUrl: 'product-title.html'
-			}
-		});
+		// app.directive('productTitle', function(){
+		// 	return {
+		// 		restrict: 'E',
+		// 		templateUrl: 'product-title.html'
+		// 	}
+		// });
 
 
 		// directive controller
-		app.directive('productPanels', function(){
+		// app.directive('productPanels', function(){
 
-			return {
+		// 	return {
 
-				restrict: 'E',
-				templateUrl: 'product-panels.html',
-				controllerAs: 'panels',
-		 		// move functionality of a controller inside this directive
+		// 		restrict: 'E',
+		// 		templateUrl: 'product-panels.html',
+		// 		controllerAs: 'panels',
+		//  		// move functionality of a controller inside this directive
 		 		
-		 		controller: function(){
-					//set initial value to 1 for tabs
-					this.tab = 1;
-					//sets the clicked tab
-					this.selectTab = function(setTab) {
-						this.tab = setTab;
-					};
-					//checks if currentTab is correct, boolean
-					this.isSelected = function(checkTab) {
-						return this.tab === checkTab;
-					};
-				}
+		//  		controller: function(){
+		// 			//set initial value to 1 for tabs
+		// 			this.tab = 1;
+		// 			//sets the clicked tab
+		// 			this.selectTab = function(setTab) {
+		// 				this.tab = setTab;
+		// 			};
+		// 			//checks if currentTab is correct, boolean
+		// 			this.isSelected = function(checkTab) {
+		// 				return this.tab === checkTab;
+		// 			};
+		// 		}
 
-			};
+		// 	};
 
 
-		});
+		//});
 
 		//array of gems for our store
 		var gems = [ 

@@ -30,7 +30,7 @@
 
 			<!-- add ReviewController for the form -->
 				<!-- novalidate to turn off default html validation -->
-				<!-- ng-submit to let us submit review for the current product, if review form is false, cannot submit -->
+				<!-- ng-submit to let us submit review for the currenct product, if review form is false, cannot submit -->
 				<form name="reviewForm" ng-controller="ReviewController as reviewCtrl" 
 																ng-submit="reviewForm.$valid && reviewCtrl.addReview(product)" novalidate>
 					<blockquote>
