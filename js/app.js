@@ -7,10 +7,16 @@
 
 
 		// Controllers are where we define the app's bx with functions and values
-		app.controller('StoreController', function(){
-			this.products = gems;
+		// Create our first $http service here
+		app.controller('StoreController',  ['$http', function($http){
+			this.products = ???;
 
-		});
+			//specify the url  we need for the data with a promise after
+			$http.get('/products.json').success(function(data){
+				????= data;
+			})
+
+		}]);
 
 
 

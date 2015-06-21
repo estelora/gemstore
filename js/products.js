@@ -1,5 +1,4 @@
 // wrap our first new dependency module in a nice closure
-
 (function() {
 
   // declare the new product module here, important to remember
